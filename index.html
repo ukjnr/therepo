@@ -43,6 +43,23 @@
             /* IE6-9 */
         }
         
+           .feat-shadow {
+            width: 100%;
+            top: -40px;
+            height: 40px;
+            display: block;
+            position: absolute;
+            opacity: 0.2;
+            background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+            /* IE6-9 */
+        }
+        
         .second-nav {
             width: 100%;
             height: 60px;
@@ -187,6 +204,7 @@
             position: absolute;
             top:0px;
             border-left: 2px solid #ececec;
+            z-index:20;
         }
         .barwrap:hover{background-color:rgba(65, 159, 240, 0.76);}
              .bar, .bar1, .bar2, .bar3 {
@@ -198,6 +216,7 @@
            background-color: #cccccc;
                  border-radius:3px;
                  transition: 0.2s ;
+                   z-index:20;
         }
         .bar1 {
             top:10px;
@@ -211,10 +230,92 @@
             top:40px;
              left:9px;
         }
+        
+             .menupagewrap{
+            width:100%;
+            height:100%;
+            padding-right:60px;
+            top:0px;
+            
+            display:block;
+            position:fixed;
+            z-index:2;
+            background-color:rgba(128, 128, 128, 0);
+         box-sizing: border-box;
+                 transition: left 0.4s;
+                 left:-100%;
+        }
+            .menupage{
+            width:100%;
+            height:100%;
+          padding-top:110px;
+            display:block;
+            position:relative;
+            z-index:10;
+            background-color:rgb(255, 255, 255);
+        }
+        
+        .slidewrap{     width:300px;
+            height:180%;
+          padding-top:110px;
+            display:block;
+            position:relative;
+        background-color:darkgrey;}
+        #slide1, #slide2, #slide3 {
+            width:100%;height:auto;display:block;
+            transition: all 1s;
+            z-index: 1;
+        }
+           #slide2, #slide3 {
+            
+            display:none;
+        }
+        .featured{
+            
+    line-height: 50px;
+            
+    width: 100%;
+    height: 50px;
+    display: block;
+    background-color: white;
+    position: relative;
+    top: 0px;
+    color: darkgrey;
+    text-align: center;
+    font-size: 25px;
+           
+            
+            
+        }
+        
+        .productwrap{   width: 100%;
+    height: 300px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    padding:6px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .producttextwrap{   width: 100%;
+    height: 300px;
+    display: block;
+    background-color: #484747;
+    position: relative;}
     </style>
 </head>
 
 <body>
+    
+        <style>
+   
+    
+    </style>
+    <div class="menupagewrap"> <div class="menupage">ssss</div></div>
+    
+    
+    
+    
 
     <div id="idfirstnav" class="first-nav">
         <div class="face-circle">
@@ -245,21 +346,50 @@
         <div class="nav-shadow"></div>
     </div>
     <div class="page">
-        <div style="height:2000px;width:100px;background-color:blue;display:block;">blank</div>
-    </div>
+        
+       <img id="slide1" src="IMG/slide300x300-1.png">
+        <img id="slide2" src="IMG/slide300x300-2.png">
+         <img id="slide3" src="IMG/slide300x300-3.png">
+        <div class="featured">
+            <div class="feat-shadow"></div>
+            
+            FEATURED DEVICES</div>
+        
+        <div style="width:100%;height:10px;display:block;position:relative;"></div>
+        
+        
+        
+         
+        <div class="productwrap">
+        
+        <img id="slide1" src="IMG/slide300x300-2.png">
+        <div class="producttextwrap">
+        
+    
+        
+        </div>
+        </div>
+    </div><!--// page end //--> 
+    
+    
+    
+    
+
     <script>
         window.onscroll = function () {
             myFunction()
         };
 
         function myFunction() {
-            if (document.body.scrollTop > 56 || document.documentElement.scrollTop > 56) {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                 document.getElementById("idsecondnav").style.position = "fixed";
                 document.getElementById("idsecondnav").style.top = "0px";
+                 document.getElementsByClassName("menupage")[0].style.paddingTop = "60px";
 
             } else {
                 document.getElementById("idsecondnav").style.position = "absolute";
                 document.getElementById("idsecondnav").style.top = "50px";
+                  document.getElementsByClassName("menupage")[0].style.paddingTop = "110px";
             }
         }
     </script>
@@ -275,12 +405,14 @@
            if (barwrap_count == "a"){
    document.getElementsByClassName("bar1")[0].style.top= "6px";
     document.getElementsByClassName("bar3")[0].style.top = "44px";
+                 document.getElementsByClassName("menupagewrap")[0].style.left = "0%";
          barwrap_count = "b";
                console.log(barwrap_count);
            } else {
                
            document.getElementsByClassName("bar1")[0].style.top= "10px";
     document.getElementsByClassName("bar3")[0].style.top = "40px";
+                        document.getElementsByClassName("menupagewrap")[0].style.left = "-100%";
             barwrap_count = "a";
            console.log(barwrap_count);
               
@@ -288,6 +420,31 @@
           
 });
         
+        
+        
+        
+        
+        
+        var myVar = setInterval(myTimer, 3000);
+var slide_count = "a;"
+function myTimer() {
+    if (slide_count == "a"){
+    document.getElementById("slide1").style.display= "block";
+    document.getElementById("slide2").style.display= "none";
+    document.getElementById("slide3").style.display= "none";
+    slide_count = "b";
+    }
+    else if(slide_count == "b"){
+    document.getElementById("slide1").style.display= "none";
+    document.getElementById("slide2").style.display= "block";
+    document.getElementById("slide3").style.display= "none";
+    slide_count = "c";}
+    else {
+  document.getElementById("slide1").style.display= "none";
+    document.getElementById("slide2").style.display= "none";
+    document.getElementById("slide3").style.display= "block";
+    slide_count = "a";}
+}
     </script>
 </body>
 
