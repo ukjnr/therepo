@@ -1,36 +1,294 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Untitled Document</title>
-	<meta name="Author" content=""/>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="" />
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-body{background-color:#dcf5e8;margin:0px;margin-top:120px;}
-.first-nav{width:100%;height:56px;display:block;position:absolute;top:0px;background-color:#262222;z-index: 5;color:rgba(244, 244, 244, 0.94);}
-.second-nav{width:100%;height:64px;display:block;position:absolute;top:56px;background-color:rgba(255, 255, 255, 0.94);z-index: 5;color:dimgrey;}
-        .sprite{background-image: url(svg/mysprite.svg);
-    display: block;
-            background-size: 140px;}
-        .fa{    width: 40px;
-    height: 40px;
-    /* left: 50px; */
-    background-position-x: 2px;
-    background-position-y: 2px;}
-        .circle{width:40px;height:40px;background-color:green;border-radius:100%;}
+        body {
+            background-color: #dcf5e8;
+            margin: 0px;
+            width: 100%;
+            position: relative
+        }
+        
+        .first-nav {
+            width: 100%;
+            height: 50px;
+            display: block;
+            position: absolute;
+            top: 0px;
+            background-color: #262222;
+            z-index: 5;
+            color: #070707;
+        }
+        
+        .nav-shadow {
+            width: 100%;
+            top: 60px;
+            height: 40px;
+            display: block;
+            position: absolute;
+            opacity: 0.2;
+            background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+            /* IE6-9 */
+        }
+        
+        .second-nav {
+            width: 100%;
+            height: 60px;
+            display: block;
+            position: absolute;
+            top: 50px;
+            background-color: rgba(255, 255, 255, 0.94);
+            z-index: 5;
+            color: dimgrey;
+        }
+        
+        .page {
+            position: relative;
+            top: 110px;
+        }
+        
+        .face,
+        .goog,
+        .inst,
+        .twit,
+        .bask {
+            background-image: url(IMG/mysprite.svg);
+            display: block;
+            background-size: 132pt;
+            width: 40px;
+            height: 40px;
+            background-position-x: 3px;
+        }
+        
+        .goog {
+            background-position-y: -103px;
+        }
+        
+        .bask {
+            background-position-y: -166px;
+            float: right;
+            margin-right: 10px;
+        }
+        
+        .twit {
+            background-position-y: -67px;
+        }
+        
+        .inst {
+            background-position-y: 2px;
+        }
+        
+        .face {
+            background-position-y: -32px;
+        }
+        
+        .face-circle:hover {
+            background-color: #3b5998;
+            transition: 0.3s cubic-bezier(.45, 1.07, 1, 1);
+            color: aquamarine;
+            -ms-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            s transform: rotate(360deg);
+        }
+        
+        .bask:hover {
+            transition: 0.3s cubic-bezier(.45, 1.07, 1, 1);
+            -ms-transform: rotate(360deg);
+            /* IE 9 */
+            -webkit-transform: rotate(360deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(360deg);
+        }
+        
+        .goog-circle:hover {
+            background-color: #dd4b39;
+            transition: 0.3s cubic-bezier(.45, 1.07, 1, 1);
+            color: aquamarine;
+            -ms-transform: rotate(360deg);
+            /* IE 9 */
+            -webkit-transform: rotate(360deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(360deg);
+        }
+        
+        .inst-circle:hover {
+            background-color: #9b6954;
+            transition: 0.3s cubic-bezier(.45, 1.07, 1, 1);
+            -ms-transform: rotate(360deg);
+            /* IE 9 */
+            -webkit-transform: rotate(360deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(360deg);
+        }
+        
+        .twit-circle:hover {
+            background-color: #4099FF;
+            transition: 0.3s cubic-bezier(.45, 1.07, 1, 1);
+            -ms-transform: rotate(360deg);
+            /* IE 9 */
+            -webkit-transform: rotate(360deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(360deg);
+        }
+        
+        .circle:hover {
+            background-color: rgba(54, 159, 214, 0.88);
+            transition: 0.3s cubic-bezier(.45, 1.07, 1, 1);
+            -ms-transform: rotate(360deg);
+            /* IE 9 */
+            -webkit-transform: rotate(360deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(360deg);
+        }
+        
+        .circle,
+        .twit-circle,
+        .face-circle,
+        .goog-circle,
+        .inst-circle {
+            width: 38px;
+            height: 38px;
+            background-color: rgba(216, 216, 216, 0.31);
+            border-radius: 100%;
+            float: left;
+            margin: 5px;
+        }
+        
+        .logo {
+            background-image: url(IMG/mysprite.svg);
+            background-image: url(IMG/mysprite.svg);
+            display: block;
+            background-size: 404pt;
+            width: 287px;
+            height: 60px;
+            background-position-x: -173px;
+            background-position-y: -12px;
+        }
+        
+        .barwrap {
+            width: 60px;
+            height: 60px;
+            display: block;
+            right: 0px;
+            background-color:rgba(188, 188, 188, 0.11);
+            z-index:5;
+            position: absolute;
+            top:0px;
+            border-left: 2px solid #ececec;
+        }
+        .barwrap:hover{background-color:rgba(65, 159, 240, 0.76);}
+             .bar, .bar1, .bar2, .bar3 {
+           
+            display: block;
+            position: absolute;
+            width: 42px;
+            height: 7px;
+           background-color: #cccccc;
+                 border-radius:3px;
+                 transition: 0.2s ;
+        }
+        .bar1 {
+            top:10px;
+            left:9px;
+        }
+         .bar2 {
+            top:25px;
+             left:9px;
+        }
+         .bar3 {
+            top:40px;
+             left:9px;
+        }
     </style>
 </head>
+
 <body>
 
-<div id="idfirstnav" class="first-nav">firstNav</div>
-    <div id="idsecondnav" class="second-nav">SecondNav</div>
-        
-<div class="sprite fa">s</div>
-    <div class="circle">        
-<div class="sprite fa"></div></div>
-<script>
-    
+    <div id="idfirstnav" class="first-nav">
+        <div class="face-circle">
+            <div class="face"></div>
+        </div>
+        <div class="twit-circle">
+            <div class="twit"></div>
+        </div>
+        <div class="goog-circle">
+            <div class="goog"></div>
+        </div>
+        <div class="inst-circle">
+            <div class="inst"></div>
+        </div>
 
-</script>
+        <div class="bask"></div>
+
+    </div>
+    <div id="idsecondnav" class="second-nav">
+        <!--<div class="logo"></div>-->
+        <img src="img/logo2.png" style="width:200px;height:60px;display:block;position:relative;">
+        <div class="barwrap">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <div class="nav-shadow"></div>
+    </div>
+    <div class="page">
+        <div style="height:2000px;width:100px;background-color:blue;display:block;">blank</div>
+    </div>
+    <script>
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        function myFunction() {
+            if (document.body.scrollTop > 56 || document.documentElement.scrollTop > 56) {
+                document.getElementById("idsecondnav").style.position = "fixed";
+                document.getElementById("idsecondnav").style.top = "0px";
+
+            } else {
+                document.getElementById("idsecondnav").style.position = "absolute";
+                document.getElementById("idsecondnav").style.top = "50px";
+            }
+        }
+    </script>
+    
+    <script>
+    
+    var barWrap = document.getElementsByClassName("barwrap")[0];
+    var barwrap_count = "a";
+  
+        barWrap.addEventListener("click", function(){
+     
+            
+           if (barwrap_count == "a"){
+   document.getElementsByClassName("bar1")[0].style.top= "6px";
+    document.getElementsByClassName("bar3")[0].style.top = "44px";
+         barwrap_count = "b";
+               console.log(barwrap_count);
+           } else {
+               
+           document.getElementsByClassName("bar1")[0].style.top= "10px";
+    document.getElementsByClassName("bar3")[0].style.top = "40px";
+            barwrap_count = "a";
+           console.log(barwrap_count);
+              
+           }
+          
+});
+        
+    </script>
 </body>
+
 </html>
